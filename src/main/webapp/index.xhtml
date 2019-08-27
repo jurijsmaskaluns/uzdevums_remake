@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>test</title>
+</h:head>
+
+<h:body>
+<h1>start</h1>
+    <h:form id="ListOfProducts">
+    <h:dataTable border="1" value="#{productListBean.product}" var="product">
+        <h:column>
+            <f:facet name="header">Id</f:facet>
+            #{product.id}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Name</f:facet>
+            #{product.name}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Created</f:facet>
+            #{product.created}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Product Type</f:facet>
+            #{product.productType}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Status</f:facet>
+            #{product.status}
+        </h:column>
+        <h:column>
+            <h:outputLink value="confirm.xhtml">Confirm
+                <f:param name="id" value="#{product.id}"/>
+            </h:outputLink>
+        </h:column>
+        <h:column>
+            <h:outputLink value="reject.xhtml">reject
+                <f:param name="id" value="#{product.id}"/>
+            </h:outputLink>
+        </h:column>
+        <h:column>
+               <h:commandButton value="delete" action="#{deleteProductBean.delProduct(product.id)}">
+                  <!--<f:param name="action" value="#{product.id}"/>-->
+               <f:ajax execute="@form" render="@form"/>
+            </h:commandButton>
+        </h:column>
+    </h:dataTable>
+
+        <h3>form 1 datatable end</h3>
+    </h:form>
+
+    <h2>form 1 end</h2>
+
+    <h:form id="AddNewProduct">
+        <p>
+            <h:outputLabel value="Name"/>
+            <h:inputText id="name" value="#{newProductBean.product.name}"/>
+            <!--<h:messages for="Name"/>-->
+        </p>
+        <p>
+            <h:outputLabel value="Product Type:"/>
+            <h:inputText id="productType" value="#{newProductBean.product.productType}"/>
+            <!--<h:messages for="autor"/>-->
+        </p>
+        <p>
+            <h:commandButton action="#{newProductBean.createProduct}" value="Create">
+                <f:ajax render="@form" execute="@form"/>
+            </h:commandButton>
+        </p>
+
+    </h:form>
+    <h2>Form 2 end</h2>
+</h:body>
+
+</html>

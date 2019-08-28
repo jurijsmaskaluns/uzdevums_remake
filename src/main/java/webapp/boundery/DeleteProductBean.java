@@ -2,7 +2,8 @@ package webapp.boundery;
 
 import webapp.model.ProductEntity;
 
-import javax.ejb.Stateless;
+
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -10,8 +11,8 @@ import javax.transaction.Transactional;
 import java.io.Serializable;
 
 @Named
-@Stateless
-public class DeleteProductBean implements Serializable {
+@RequestScoped
+public class DeleteProductBean {
 
     @PersistenceContext
     private EntityManager em;

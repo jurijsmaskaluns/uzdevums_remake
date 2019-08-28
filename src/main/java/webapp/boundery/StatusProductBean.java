@@ -2,14 +2,14 @@ package webapp.boundery;
 
 import webapp.model.ProductEntity;
 
-import javax.ejb.Stateless;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 @Named
-@Stateless
+@RequestScoped
 public class StatusProductBean {
     @PersistenceContext
     private EntityManager em;
@@ -20,6 +20,7 @@ public class StatusProductBean {
         product.setStatus("2");
         em.persist(product);
     }
+    @Transactional
     public void rejectProduct(int id){
         product = em.find(ProductEntity.class, id );
         product.setStatus("3");

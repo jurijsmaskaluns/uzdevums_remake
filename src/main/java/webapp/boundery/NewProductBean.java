@@ -2,6 +2,7 @@ package webapp.boundery;
 
 import webapp.model.ProductEntity;
 
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
@@ -11,7 +12,8 @@ import java.io.Serializable;
 
 @Named
 @RequestScoped
-public class NewProductBean implements Serializable {
+
+public class NewProductBean {
 
     @PersistenceContext
     private EntityManager em;

@@ -7,6 +7,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.io.Serializable;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class ProductListBean implements Serializable {
         System.out.println("Searcing ...");
   //      System.out.println(id);
     }
-
+    @Transactional
     public List<ProductEntity> getProduct(){
         return em.createQuery("select p from Product p", ProductEntity.class).getResultList();
     }

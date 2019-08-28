@@ -30,4 +30,5 @@ public class NewProductBean implements Serializable {
     public void setProduct(ProductEntity product) {
         this.product = product;
     }
+
 }

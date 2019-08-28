@@ -2,6 +2,7 @@ package webapp.boundery;
 
 import webapp.model.ProductEntity;
 
+import javax.ejb.Stateless;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Named
 @SessionScoped
+
 public class ProductListBean implements Serializable {
 
     @PersistenceContext(unitName = "myPU")

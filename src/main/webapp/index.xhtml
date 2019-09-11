@@ -53,25 +53,8 @@
 
     </h:form>
 
-    <h2>Add Product</h2>
+    <h2> <a href="newbook.xhtml">New Product</a> </h2>
 
-    <h:form id="AddNewProduct" >
-
-            <p>
-                <h:outputLabel value="Name: "/>
-                <h:inputText id="name" value="#{newProductBean.product.name}"/>
-            </p>
-            <p>
-                <h:outputLabel value="Product Type: "/>
-                <h:inputText  id="productType" value="#{newProductBean.product.productType}"/>
-            </p>
-            <p>
-                <h:commandButton update=":ListOfProducts:ProductList" type="submit" action="#{newProductBean.createProduct}" value="Create">
-
-                </h:commandButton>
-            </p>
-
-    </h:form>
 </h:body>
 
 </html>
